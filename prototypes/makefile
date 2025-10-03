@@ -50,6 +50,9 @@ MEMTEST := valgrind ${VALFL}
 9build: clean
 	${CCMD} 9.c -o 9.x
 
+build-print_break: clean
+	${CCMD} print_break.c -o print_break.x
+
 ######## RUN
 
 0run: 0build
@@ -81,6 +84,12 @@ MEMTEST := valgrind ${VALFL}
 
 9run: 9build
 	./9.x
+
+run-print_break: build-print_break
+	@./print_break.x
+	@./print_break.x
+	@./print_break.x
+	@./print_break.x
 
 ######## TESTING
 
